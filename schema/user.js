@@ -10,6 +10,11 @@ const id = joi.number().integer().min(1).required()
 const nickname = joi.string().required()
 const email = joi.string().email().required()
 
+// 定义 用户头像 的验证规则
+// dataUri() 指的是如下格式的字符串数据：
+// data:image/png;base64,VE9PTUFOWVNFQ1JFVFM=
+const avatar = joi.string().dataUri().required()
+
 // 验证规则对象 - 注册和登录
 exports.regLoginSchema = {
   body: {
@@ -41,5 +46,12 @@ exports.updatePasswordSchema = {
     // 3. .concat() 用于合并 joi.not(joi.ref('oldPwd')) 和 password 这两条验证规则
     // 翻译：符合以上要求 然后再通过 password 规则验证即可
     newPwd: joi.not(joi.ref('oldPwd')).concat(password)
+  }
+}
+
+// 验证规则对象 - 更新用户头像
+exports.updateAvatarSchema = {
+  body: {
+    avatar
   }
 }
