@@ -18,7 +18,7 @@ exports.addCateSchema = {
 
 // 验证规则对象 - 删除文章分类
 exports.deleteCateSchema = {
-  body: {
+  params: {
     id
   }
 }

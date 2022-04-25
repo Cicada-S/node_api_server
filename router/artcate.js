@@ -12,6 +12,6 @@ router.get('/cates', artcateHandler.getArtcate)
 // 新增文章分类的路由
 router.post('/addcates', expressJoi(addCateSchema), artcateHandler.addArticleCates)
 // 删除文章分类的路由
-router.post('/deletecate', expressJoi(deleteCateSchema), artcateHandler.deleteCateById)
+router.get('/deletecate/:id', expressJoi(deleteCateSchema), artcateHandler.deleteCateById)
 
 module.exports = router
