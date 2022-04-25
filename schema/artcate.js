@@ -22,3 +22,10 @@ exports.deleteCateSchema = {
     id
   }
 }
+
+// 验证规则对象 - 获取文章分类数据
+exports.getCateSchema = {
+  params: {
+    id
+  }
+}
