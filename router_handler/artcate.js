@@ -44,7 +44,7 @@ exports.addArticleCates = (req, res) => {
 
 // 删除文章分类的处理函数
 exports.deleteCateById = (req, res) => {
-  const sql = 'update ev_article_cate set is_delete = 1 where id = ?'
+  const sql = 'update ev_article_cate set is_delete = 1 where Id = ?'
   db.query(sql, req.body.id, (err, results) => {
     if(err) return res.cc(err)
     if(results.affectedRows !== 1) return res.cc('删除文章分类失败!')
