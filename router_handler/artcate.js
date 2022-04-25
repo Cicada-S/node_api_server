@@ -38,6 +38,16 @@ exports.addArticleCates = (req, res) => {
       if(err) return res.cc(err)
       if(results.affectedRows !== 1) return res.cc('新增文章分类失败!')
       res.cc('新增文章分类成功!', 0)
+    })
   })
+}
+
+// 删除文章分类的处理函数
+exports.deleteCateById = (req, res) => {
+  const sql = 'update ev_article_cate set is_delete = 1 where id = ?'
+  db.query(sql, req.body.id, (err, results) => {
+    if(err) return res.cc(err)
+    if(results.affectedRows !== 1) return res.cc('删除文章分类失败!')
+    res.cc('删除文章分类成功!', 0)
   })
 }
