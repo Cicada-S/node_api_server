@@ -15,6 +15,10 @@ const email = joi.string().email().required()
 // data:image/png;base64,VE9PTUFOWVNFQ1JFVFM=
 const avatar = joi.string().dataUri().required()
 
+// 定义 文章name和alias 的验证规则
+const name = joi.string().required()
+const alias = joi.string().alphanum().required()
+
 // 验证规则对象 - 注册和登录
 exports.regLoginSchema = {
   body: {
@@ -53,5 +57,13 @@ exports.updatePasswordSchema = {
 exports.updateAvatarSchema = {
   body: {
     avatar
+  }
+}
+
+// 验证规则对象 - 新增文章分类 
+exports.addCateSchema = {
+  body: {
+    name,
+    alias
   }
 }
