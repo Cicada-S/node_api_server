@@ -29,3 +29,12 @@ exports.getCateSchema = {
     id
   }
 }
+
+// 验证规则对象 - 更新文章分类数据
+exports.updateCateSchema = {
+  body: {
+    Id: id,
+    name,
+    alias
+  }
+}
