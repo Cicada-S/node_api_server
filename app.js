@@ -41,12 +41,12 @@ app.use(expressjwt({
 // 导入并注册路由模块
 const userRouter = require('./router/user')
 app.use('/api', userRouter)
-const userinfo = require('./router/userinfo')
-app.use('/my', userinfo)
-const artcate = require('./router/artcate')
-app.use('/my/article', artcate)
-const article = require('./router/article')
-app.use('/my/article', article)
+const userinfoRouter = require('./router/userinfo')
+app.use('/my', userinfoRouter)
+const artcateRouter = require('./router/artcate')
+app.use('/my/article', artcateRouter)
+const articleRouter = require('./router/article')
+app.use('/my/article', articleRouter)
 
 // 错误级别中间件
 app.use((err, req, res, next) => {

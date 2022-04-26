@@ -6,7 +6,6 @@ exports.getArtcate = (req, res) => {
   const sql = 'select * from ev_article_cate where is_delete = 0 order by id asc'
   db.query(sql, (err, results) => {
     if(err) return res.cc(err)
-    console.log(results);
     if(results.length === 0) return res.cc('获取文章分类列表失败!')
     res.send({
       status: 0,
