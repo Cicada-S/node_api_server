@@ -11,6 +11,9 @@ const config = require('./config')
 const cors = require('cors')
 app.use(cors())
 
+// 托管静态资源文件
+app.use(express.static('./uploads'))
+
 // 配置解析表单数据的中间件
 // 注意: 这个中间件,只能解析 application/x-www-form-urlencoded 格式的表单数据
 app.use(express.urlencoded({ extended: false}))
@@ -42,6 +45,8 @@ const userinfo = require('./router/userinfo')
 app.use('/my', userinfo)
 const artcate = require('./router/artcate')
 app.use('/my/article', artcate)
+const article = require('./router/article')
+app.use('/my/article', article)
 
 // 错误级别中间件
 app.use((err, req, res, next) => {
