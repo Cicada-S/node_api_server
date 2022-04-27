@@ -22,5 +22,7 @@ const { addArticleSchema } = require('../schema/article')
 // 将文件类型的数据，解析并挂载到 req.file 属性中
 // 将文本类型的数据，解析并挂载到 req.body 属性中
 router.post('/add', upload.single('cover_img'), expressJoi(addArticleSchema), articleHandler.addArticle)
+// 获取文章列表数据的路由
+router.get('/icles', articleHandler.getArticles)
 
 module.exports = router

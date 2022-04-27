@@ -24,3 +24,17 @@ exports.addArticle = (req, res) => {
     res.cc('发布文章成功!', 0)
   })
 }
+
+// 获取文章列表数据的处理函数
+exports.getArticles = (req, res) => {
+  const sql = 'select * from ev_articles where is_delete = 0'
+  db.query(sql, (err, results) => {
+    if(err) return res.cc(err)
+    if(results.length === 0) return res.cc('获取文章列表数据失败!')
+    res.send({
+      status: 0,
+      message: '获取文章列表数据成功!',
+      data: results
+    })
+  })
+}
