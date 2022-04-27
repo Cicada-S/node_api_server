@@ -17,8 +17,8 @@ exports.addArticleSchema = {
   }
 } 
 
-// 验证规则对象 - 删除文章
-exports.deleteIcleSchema = {
+// 验证规则对象 - 删除文章 与 获取文章详情
+exports.articleIdSchema = {
   params: {
     id: cate_id
   }

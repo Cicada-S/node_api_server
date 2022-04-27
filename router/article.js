@@ -15,7 +15,7 @@ const upload = multer({ dest: path.join(__dirname, '../uploads') })
 // 导入验证数据的中间件
 const expressJoi = require('@escook/express-joi')
 // 导入文章的验证模块
-const { addArticleSchema, deleteIcleSchema } = require('../schema/article')
+const { addArticleSchema, articleIdSchema } = require('../schema/article')
 
 // 发布新文章的路由
 // upload.single() 是一个局部生效的中间件，用来解析 FormData 格式的表单数据
@@ -25,6 +25,8 @@ router.post('/add', upload.single('cover_img'), expressJoi(addArticleSchema), ar
 // 获取文章列表数据的路由
 router.get('/icles', articleHandler.getArticles)
 // 删除文章的路由
-router.get('/deleteicle/:id', expressJoi(deleteIcleSchema), articleHandler.deleteIcleById)
+router.get('/deleteicle/:id', expressJoi(articleIdSchema), articleHandler.deleteIcleById)
+// 获取文章详情的路由
+router.get('/articleinfo/:id', expressJoi(articleIdSchema), articleHandler.getArticleById)
 
 module.exports = router
