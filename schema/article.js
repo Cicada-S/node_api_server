@@ -16,3 +16,10 @@ exports.addArticleSchema = {
     state
   }
 } 
+
+// 验证规则对象 - 删除文章
+exports.deleteIcleSchema = {
+  params: {
+    id: cate_id
+  }
+}
