@@ -23,3 +23,14 @@ exports.articleIdSchema = {
     id: cate_id
   }
 }
+
+// 验证规则对象 - 更新文章信息
+exports.updateArticleSchema = {
+  body: {
+    id: cate_id,
+    cate_id,
+    title,  
+    content,
+    state
+  }
+}

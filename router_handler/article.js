@@ -62,3 +62,14 @@ exports.getArticleById = (req, res) => {
     })
   })
 }
+
+// 更新文章信息的处理函数
+exports.updateIcleById = (req, res) => {
+  const sql = 'update ev_articles set ? where Id = ? and is_delete = 0'
+  db.query(sql, [req.body, req.body.id], (err, results) => {
+    if(err) res.cc(err)
+    console.log(results);
+    if(results.affectedRows !== 1) return res.cc('更新文章信息失败!')
+    res.cc('更新文章信息成功!')
+  })
+}
